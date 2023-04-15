@@ -1,0 +1,22 @@
+{
+    "config": {
+        "step": {
+            "user": {
+                "data": {
+                    "name": "Title",
+                    "private_key": "Private key (nsec)",
+                    "write_relays": "Write relays url"
+                }
+            }
+        }
+    },
+    "options": {
+        "step": {
+            "init": {
+                "data": {
+                    "write_relays": "Write relays url"
+                }
+            }
+        }
+    }
+}

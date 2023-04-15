@@ -1,0 +1,22 @@
+{
+    "config": {
+        "step": {
+            "user": {
+                "data": {
+                    "name": "表示名",
+                    "private_key": "秘密鍵(nsec)",
+                    "write_relays": "送信リレーURL"
+                }
+            }
+        }
+    },
+    "options": {
+        "step": {
+            "init": {
+                "data": {
+                    "write_relays": "送信リレーURL"
+                }
+            }
+        }
+    }
+}

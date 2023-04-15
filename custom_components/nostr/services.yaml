@@ -1,0 +1,34 @@
+post_event:
+  name: Post event
+  fields:
+    pubkey:
+      name: Account
+      required: true
+      selector:
+        device:
+          filter:
+            - integration: nostr
+          multiple: true
+    kind:
+      name: Kind
+      required: true
+      selector:
+        number:
+          min: 0
+          max: 65535
+          mode: box
+    content:
+      name: Content
+      required: false
+      selector:
+        template:
+    created_at:
+      name: Created at (UTC)
+      required: false
+      selector:
+        datetime:
+    tags:
+      name: Tags
+      required: false
+      selector:
+        object:

@@ -1,0 +1,16 @@
+{
+  "domain": "nostr",
+  "name": "Nostr",
+  "version": "0.0.1",
+  "integration_type": "service",
+  "documentation": "https://github.com/vwt12eh8/hassio-nostr",
+  "issue_tracker": "https://github.com/vwt12eh8/hassio-nostr/issues",
+  "requirements": [
+    "nostr==0.0.2"
+  ],
+  "config_flow": true,
+  "codeowners": [
+    "@vwt12eh8"
+  ],
+  "iot_class": "cloud_push"
+}
