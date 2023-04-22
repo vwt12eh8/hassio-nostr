@@ -13,14 +13,12 @@ from homeassistant.helpers import device_registry
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.helpers.device_registry import (DeviceEntryType,
                                                    DeviceRegistry)
-from nostr.event import Event as NEvent
-from nostr.event import EventKind
-from nostr.filter import Filter
-from nostr.key import PrivateKey
-from nostr.message_type import RelayMessageType
 from reactivex import compose
 from reactivex import operators as ops
 
+from .nostr.event import Event as NEvent
+from .nostr.key import PrivateKey
+from .nostr.message_type import RelayMessageType
 from .rxws import ObservableWebsocket, filter_text
 from .shared.factory import SharedFactory, SharedFactoryItem
 
@@ -116,13 +114,13 @@ async def async_setup(hass: HomeAssistant, config):
             created_at: Any = _parse_or_none(call.data.get(
                 ATTR_CREATED_AT, None), lambda x: int(datetime.fromisoformat(x).timestamp()))
             event = NEvent(
-                key.public_key.hex(),
                 call.data.get(ATTR_CONTENT, ""),
+                key.public_key.hex(),
                 created_at,
                 int(call.data[ATTR_KIND]),
                 call.data.get(ATTR_TAGS, []),
             )
-            key.sign_event(event)
+            event.sign(key)
             message = event.to_message()
             _LOGGER.debug(message)
             write_urls = [
@@ -178,12 +176,11 @@ def _verify_event():
         if x[0] == RelayMessageType.EVENT:
             e: dict = x[2]
             event = NEvent(
-                e.get("pubkey", ""),
                 e.get("content", ""),
+                e.get("pubkey", ""),
                 e.get("created_at", 0),
                 e.get("kind", 0),
                 e.get("tags", []),
-                e.get("id", None),
                 e.get("sig", None),
             )
             if not event.verify():

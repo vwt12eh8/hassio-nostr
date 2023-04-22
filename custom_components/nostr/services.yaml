@@ -12,6 +12,7 @@ post_event:
     kind:
       name: Kind
       required: true
+      example: 1
       selector:
         number:
           min: 0

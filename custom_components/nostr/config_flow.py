@@ -3,7 +3,7 @@ from typing import Any, Iterable
 from homeassistant.config_entries import ConfigEntry, ConfigFlow, OptionsFlow
 from homeassistant.const import CONF_NAME
 from homeassistant.helpers.selector import SelectSelector, SelectSelectorConfig
-from nostr.key import PrivateKey
+from .nostr.key import PrivateKey
 from voluptuous import Optional, Required, Schema
 
 from . import CONF_PRIVATE_KEY, CONF_WRITE_RELAYS, DOMAIN
