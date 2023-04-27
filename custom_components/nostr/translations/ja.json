@@ -4,7 +4,8 @@
             "user": {
                 "data": {
                     "name": "表示名",
-                    "private_key": "秘密鍵(nsec)",
+                    "private_key": "秘密鍵または公開鍵(nsec/npub)",
+                    "read_relays": "受信リレーURL",
                     "write_relays": "送信リレーURL"
                 }
             }
@@ -14,6 +15,7 @@
         "step": {
             "init": {
                 "data": {
+                    "read_relays": "受信リレーURL",
                     "write_relays": "送信リレーURL"
                 }
             }

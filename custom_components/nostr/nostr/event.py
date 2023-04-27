@@ -58,6 +58,17 @@ class Event:
             self.created_at = int(time.time())
 
     @staticmethod
+    def from_json(data: dict):
+        return Event(
+            data["content"],
+            data["pubkey"],
+            data["created_at"],
+            data["kind"],
+            data.get("tags", []),
+            data.get("sig"),
+        )
+
+    @staticmethod
     def serialize(public_key: str, created_at: int, kind: int, tags: List[List[str]], content: str) -> bytes:
         data = [0, public_key, created_at, kind, tags, content]
         data_str = json.dumps(data, separators=(',', ':'), ensure_ascii=False)

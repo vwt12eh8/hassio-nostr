@@ -1,7 +1,7 @@
 {
   "domain": "nostr",
   "name": "Nostr",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "integration_type": "service",
   "documentation": "https://github.com/vwt12eh8/hassio-nostr",
   "issue_tracker": "https://github.com/vwt12eh8/hassio-nostr/issues",

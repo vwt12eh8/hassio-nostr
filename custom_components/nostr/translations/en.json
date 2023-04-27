@@ -4,7 +4,8 @@
             "user": {
                 "data": {
                     "name": "Title",
-                    "private_key": "Private key (nsec)",
+                    "private_key": "Private or Public key (nsec/npub)",
+                    "read_relays": "Read relays url",
                     "write_relays": "Write relays url"
                 }
             }
@@ -14,6 +15,7 @@
         "step": {
             "init": {
                 "data": {
+                    "read_relays": "Read relays url",
                     "write_relays": "Write relays url"
                 }
             }
