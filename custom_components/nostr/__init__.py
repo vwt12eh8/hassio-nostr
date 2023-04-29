@@ -76,7 +76,7 @@ async def async_setup(hass: HomeAssistant, config):
 
         tasks = list[Task]()
         for entry in keys:
-            key = PrivateKey.from_nsec(entry.data[CONF_PRIVATE_KEY])
+            key = PrivateKey(bytes.fromhex(entry.data[CONF_PRIVATE_KEY]))
             created_at: Any = _parse_or_none(call.data.get(
                 ATTR_CREATED_AT, None), lambda x: int(datetime.fromisoformat(x).timestamp()))
             event = NEvent(
